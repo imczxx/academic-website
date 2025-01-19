@@ -1,5 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
+	import { base } from '$app/paths';
 </script>
 
 <div class="mx-auto max-w-4xl px-4 py-8" in:fade>
@@ -17,8 +18,8 @@
 	</section>
 
 	<nav class="flex justify-center gap-6">
-		<a href="/research" class="text-blue-600 hover:text-blue-800">Research</a>
-		<a href="/publications" class="text-blue-600 hover:text-blue-800">Publications</a>
-		<a href="/contact" class="text-blue-600 hover:text-blue-800">Contact</a>
+		<a href="{base}/research" class="text-blue-600 hover:text-blue-800">Research</a>
+		<a href="{base}/publications" class="text-blue-600 hover:text-blue-800">Publications</a>
+		<a href="{base}/contact" class="text-blue-600 hover:text-blue-800">Contact</a>
 	</nav>
 </div>

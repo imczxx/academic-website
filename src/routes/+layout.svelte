@@ -1,16 +1,17 @@
 <script>
 	import '../app.css';
 	import { navigation } from '$lib/navigation';
+	import { base } from '$app/paths';
 	let { children } = $props();
 </script>
 
 <nav class="bg-gray-800 p-4 text-white">
 	<div class="mx-auto max-w-4xl">
 		<div class="flex items-center justify-between">
-			<a href="/" class="text-xl font-bold">Your Name</a>
+			<a href="{base}/" class="text-xl font-bold">Your Name</a>
 			<div class="flex gap-6">
 				{#each navigation.sort((a, b) => a.order - b.order) as { path, name }}
-					<a href={path} class="hover:text-gray-300">{name}</a>
+					<a href="{base}{path}" class="hover:text-gray-300">{name}</a>
 				{/each}
 			</div>
 		</div>

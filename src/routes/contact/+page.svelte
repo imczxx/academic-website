@@ -11,8 +11,8 @@
 			<li>Office: Building Name, Room Number</li>
 			<li>
 				Social Media:
-				<a href="#" class="text-blue-600 hover:text-blue-800">Google Scholar</a> ·
-				<a href="#" class="text-blue-600 hover:text-blue-800">LinkedIn</a>
+				<a href="https://scholar.google.com" class="text-blue-600 hover:text-blue-800">Google Scholar</a> ·
+				<a href="https://linkedin.com" class="text-blue-600 hover:text-blue-800">LinkedIn</a>
 			</li>
 		</ul>
 	</div>
