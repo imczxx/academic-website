@@ -15,6 +15,46 @@
 			conducting research in artificial intelligence. My research interests include machine learning,
 			computer vision, and related fields.
 		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
+		<p>
+			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+			conducting research in artificial intelligence. My research interests include machine learning,
+			computer vision, and related fields.
+		</p>
 	</section>
 
 	<nav class="flex justify-center gap-6">

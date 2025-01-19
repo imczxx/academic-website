@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import '$lib/styles/layout.css';
 	import { navigation } from '$lib/navigation';
 	import { base } from '$app/paths';
 	import { afterNavigate } from '$app/navigation';
@@ -12,22 +13,24 @@
 	});
 </script>
 
-<nav class="bg-gray-800 p-4 text-white">
-	<div class="mx-auto max-w-4xl">
-		<div class="flex items-center justify-between">
+<div class="layout">
+	<nav>
+		<div class="nav-header">
 			<a href="{base}/" class="text-xl font-bold">Your Name</a>
-			<div class="flex gap-6">
-				{#each navigation.sort((a, b) => a.order - b.order) as { path, name }}
-					<a href="{base}{path}" class="hover:text-gray-300">{name}</a>
-				{/each}
-			</div>
 		</div>
-	</div>
-</nav>
-
-<main>
-	{@render children()}
-</main>
+		<ul>
+			{#each navigation.sort((a, b) => a.order - b.order) as { path, name }}
+				<li>
+					<a href="{base}{path}">{name}</a>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+	
+	<main>
+		<slot />
+	</main>
+</div>
 
 <footer class="mt-12 border-t bg-gray-50 py-8 text-center text-gray-600">
 	<p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
