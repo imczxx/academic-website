@@ -4,16 +4,33 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			window.MathJax = {
+				tex: {
+					inlineMath: [['$', '$']],
+					displayMath: [['$$', '$$']]
+				},
+				startup: {
+					pageReady: () => {
+						return MathJax.startup.defaultPageReady();
+					}
+				}
+			};
+		</script>
+		<script type="text/javascript" id="MathJax-script" async 
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+		</script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 		
 		<link href="./app/immutable/assets/0.C5jtKBGV.css" rel="stylesheet">
-		<link rel="modulepreload" href="./app/immutable/entry/start.DcGXmvVG.js">
-		<link rel="modulepreload" href="./app/immutable/chunks/Dctr737h.js">
-		<link rel="modulepreload" href="./app/immutable/chunks/BPKsb17A.js">
-		<link rel="modulepreload" href="./app/immutable/chunks/Cf7SE3A0.js">
+		<link rel="modulepreload" href="./app/immutable/entry/start.BLc8y6wq.js">
+		<link rel="modulepreload" href="./app/immutable/chunks/D63mlR0L.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/C_XEmuGL.js">
-		<link rel="modulepreload" href="./app/immutable/entry/app.CRmU-DsD.js">
+		<link rel="modulepreload" href="./app/immutable/chunks/BPKsb17A.js">
+		<link rel="modulepreload" href="./app/immutable/chunks/CpzalkmH.js">
+		<link rel="modulepreload" href="./app/immutable/entry/app.DcHry7uj.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/Clv2urZh.js">
-		<link rel="modulepreload" href="./app/immutable/nodes/0.Delg2eLE.js">
+		<link rel="modulepreload" href="./app/immutable/nodes/0.39V3XJMx.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/rcI_2F5T.js">
 		<link rel="modulepreload" href="./app/immutable/chunks/DB691WeU.js">
 		<link rel="modulepreload" href="./app/immutable/nodes/6.DUofCDaf.js">
@@ -25,7 +42,7 @@
 			
 			<script>
 				{
-					__sveltekit_k992ak = {
+					__sveltekit_wzywz8 = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/academic-website"
 					};
@@ -33,8 +50,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./app/immutable/entry/start.DcGXmvVG.js"),
-						import("./app/immutable/entry/app.CRmU-DsD.js")
+						import("./app/immutable/entry/start.BLc8y6wq.js"),
+						import("./app/immutable/entry/app.DcHry7uj.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 6],
