@@ -17,7 +17,13 @@ excerpt: Another interesting research topic...
 
 ## Content
 
-Your blog content here...
+Here is an inline math example: \\(E = mc^2\\).
+
+And here is a block math example:
+
+\\[
+\\int_a^b f(x) \\, dx = F(b) - F(a)
+\\]
 
 	</article>
 </div> 
