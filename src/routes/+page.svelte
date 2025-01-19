@@ -57,9 +57,4 @@
 		</p>
 	</section>
 
-	<nav class="flex justify-center gap-6 max-w-4xl mx-auto px-4">
-		<a href="{base}/research" class="text-blue-600 hover:text-blue-800">Research</a>
-		<a href="{base}/publications" class="text-blue-600 hover:text-blue-800">Publications</a>
-		<a href="{base}/contact" class="text-blue-600 hover:text-blue-800">Contact</a>
-	</nav>
 </div>

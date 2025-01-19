@@ -26,11 +26,9 @@
 		</ul>
 	</nav>
 	
-	<main>
-		<slot />
-	</main>
+	<div class="flex-1 flex flex-col min-h-screen">
+		<main class="flex-1">
+			<slot />
+		</main>
+	</div>
 </div>
-
-<footer class="mt-12 border-t bg-gray-50 py-8 text-center text-gray-600">
-	<p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
-</footer>
