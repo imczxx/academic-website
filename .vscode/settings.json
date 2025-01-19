@@ -1,0 +1,26 @@
+{
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "tailwindCSS.includeLanguages": {
+        "svelte": "html",
+        "svx": "html",
+        "markdown": "html",
+        "mdsvex": "html"
+    },
+    "files.associations": {
+        "*.svx": "svelte"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggest.showStatusBar": true,
+    "editor.hover.enabled": true,
+    "css.validate": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit"
+    },
+    "tailwindCSS.experimental.classRegex": [
+        ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+        ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ],
+    "tailwindCSS.validate": true
+}
