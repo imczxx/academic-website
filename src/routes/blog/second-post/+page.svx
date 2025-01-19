@@ -17,13 +17,13 @@ excerpt: Another interesting research topic...
 
 ## Content
 
-Here is an inline math example: \\(E = mc^2\\).
+Here is an inline math example: $E = mc^2$
 
 And here is a block math example:
 
-\\[
-\\int_a^b f(x) \\, dx = F(b) - F(a)
-\\]
+$$
+\int_a^b f(x) \, dx = F(b) - F(a)
+$$
 
 	</article>
 </div> 
