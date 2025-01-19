@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import { navigation } from '$lib/navigation';
 	let { children } = $props();
 </script>
 
@@ -8,9 +9,9 @@
 		<div class="flex items-center justify-between">
 			<a href="/" class="text-xl font-bold">Your Name</a>
 			<div class="flex gap-6">
-				<a href="/research" class="hover:text-gray-300">Research</a>
-				<a href="/publications" class="hover:text-gray-300">Publications</a>
-				<a href="/contact" class="hover:text-gray-300">Contact</a>
+				{#each navigation.sort((a, b) => a.order - b.order) as { path, name }}
+					<a href={path} class="hover:text-gray-300">{name}</a>
+				{/each}
 			</div>
 		</div>
 	</div>
