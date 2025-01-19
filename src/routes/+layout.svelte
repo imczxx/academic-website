@@ -4,7 +4,6 @@
 	import { navigation } from '$lib/navigation';
 	import { base } from '$app/paths';
 	import { afterNavigate } from '$app/navigation';
-	let { children } = $props();
 
 	afterNavigate(() => {
 		if (typeof MathJax !== 'undefined') {
