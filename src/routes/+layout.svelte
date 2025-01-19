@@ -2,7 +2,14 @@
 	import '../app.css';
 	import { navigation } from '$lib/navigation';
 	import { base } from '$app/paths';
+	import { afterNavigate } from '$app/navigation';
 	let { children } = $props();
+
+	afterNavigate(() => {
+		if (typeof MathJax !== 'undefined') {
+			MathJax.typesetPromise();
+		}
+	});
 </script>
 
 <nav class="bg-gray-800 p-4 text-white">
