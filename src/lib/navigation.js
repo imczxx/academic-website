@@ -1,22 +1,28 @@
+import { Home, BookOpen, Mail, User, Star } from 'lucide-svelte';
+
 export const navigation = [
 	{
-		path: '/research',
-		name: 'Research',
+		path: '/',
+		name: 'research',
+		icon: Star,
 		order: 1
 	},
 	{
 		path: '/blog',
-		name: 'Blog',
+		name: 'blog',
+		icon: BookOpen,
 		order: 2
 	},
 	{
 		path: '/publications',
-		name: 'Publications',
+		name: 'publications',
+		icon: User,
 		order: 3
 	},
 	{
 		path: '/contact',
-		name: 'Contact',
+		name: 'contact',
+		icon: Mail,
 		order: 4
 	}
 ]; 

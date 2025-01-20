@@ -56,12 +56,17 @@
 			class:pointer-events-none={!isDrawerOpen}
 		>
 			<!-- 遮罩层 -->
-			<div 
-				class="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300"
-				class:opacity-0={!isDrawerOpen}
-				class:opacity-100={isDrawerOpen}
-				on:click={toggleDrawer}
-			></div>
+			<button
+				type="button"
+				class="overlay"
+				on:click={() => (isDrawerOpen = false)}
+				on:keydown={(e) => {
+					if (e.key === 'Escape') {
+						isDrawerOpen = false;
+					}
+				}}
+				aria-label="关闭菜单"
+			></button>
 
 			<!-- 抽屉内容 -->
 			<nav class="relative w-64 h-full bg-white dark:bg-gray-800 shadow-xl overflow-y-auto">
@@ -69,9 +74,12 @@
 					<a href="{base}/" class="text-xl font-bold">Your Name</a>
 				</div>
 				<ul>
-					{#each navigation.sort((a, b) => a.order - b.order) as { path, name }}
+					{#each navigation.sort((a, b) => a.order - b.order) as { path, name, icon: Icon }}
 						<li>
-							<a href="{base}{path}">{name}</a>
+							<a href="{base}{path}" class="flex items-center gap-3 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+								<svelte:component this={Icon} class="w-5 h-5" />
+								<span>{name}</span>
+							</a>
 						</li>
 					{/each}
 				</ul>
@@ -84,9 +92,12 @@
 				<a href="{base}/" class="text-xl font-bold">Your Name</a>
 			</div>
 			<ul>
-				{#each navigation.sort((a, b) => a.order - b.order) as { path, name }}
+				{#each navigation.sort((a, b) => a.order - b.order) as { path, name, icon: Icon }}
 					<li>
-						<a href="{base}{path}">{name}</a>
+						<a href="{base}{path}" class="flex items-center gap-3 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+							<svelte:component this={Icon} class="w-5 h-5" />
+							<span>{name}</span>
+						</a>
 					</li>
 				{/each}
 			</ul>
@@ -116,5 +127,35 @@
 
 	:global(.dark) .nav-header {
 		@apply border-gray-700;
+	}
+
+	.overlay {
+		position: fixed;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 40;
+		border: none;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+	}
+
+	/* 更新导航链接样式 */
+	nav a {
+		text-decoration: none;
+		color: #333;
+		font-size: 1.1rem;
+		display: block;
+	}
+
+	/* 更新暗色模式下的图标颜色 */
+	:global(.dark) nav a :global(svg) {
+		@apply text-gray-400;
+	}
+
+	:global(.dark) nav a:hover :global(svg) {
+		@apply text-blue-400;
 	}
 </style>
