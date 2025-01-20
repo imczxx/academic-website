@@ -30,9 +30,7 @@ nav {
 }
 
 .nav-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eaeaea;
+    @apply p-4 border-b dark:border-gray-700;
 }
 
 .nav-header a {
