@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
+	import { Skull } from 'lucide-svelte';
 
 	let darkMode = false;
 	let isSystemDark = false;
@@ -136,6 +137,11 @@
 			computer vision, and related fields.
 		</p>
 	</section>
+
+	<div class="flex items-center gap-2">
+		<Skull />
+		<span>测试图标</span>
+	</div>
 
 </div>
 
