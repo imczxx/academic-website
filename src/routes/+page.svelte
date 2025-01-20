@@ -55,62 +55,88 @@
 			document.documentElement.classList.remove('dark');
 		}
 	}
+
+	// 导入原来各个页面的内容
+	import Research from './research/+page.svelte';
+	import Publications from './publications/+page.svelte';
+	import Contact from './contact/+page.svelte';
 </script>
 
 <div class="mx-auto max-w-4xl px-4 py-8" in:fade>
-	<header class="mb-12 text-center">
-		<h1 class="mb-4 text-4xl font-bold dark:text-gray-50 transition-colors duration-200">About Me</h1>
-		<p class="text-xl text-gray-600 dark:text-gray-400 transition-colors duration-200">Position · Institution</p>
-	</header>
+	<!-- About Section -->
+	<section id="about" class="mb-16">
+		<header class="mb-12">
+			<h1 class="mb-4 text-4xl font-bold dark:text-gray-50">About Me</h1>
+			<p class="text-xl text-gray-600 dark:text-gray-400">Position · Institution</p>
+		</header>
 
-	<section class="prose prose-lg mx-auto mb-8 dark:prose-invert transition-colors duration-200">
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
-		<p>
-			Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
-			conducting research in artificial intelligence. My research interests include machine learning,
-			computer vision, and related fields.
-		</p>
+		<div class="prose prose-lg dark:prose-invert">
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+			<p>
+				Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+				conducting research in artificial intelligence. My research interests include machine learning,
+				computer vision, and related fields.
+			</p>
+		</div>
 	</section>
 
+	<!-- Research Section -->
+	<section id="research" class="mb-16">
+		<h2 class="mb-8 text-3xl font-bold">Research Areas</h2>
+		<!-- 研究内容 -->
+		<Research />
+	</section>
+
+	<!-- Publications Section -->
+	<section id="publications" class="mb-16">
+		<h2 class="mb-8 text-3xl font-bold">Publications</h2>
+		<Publications />
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact">
+		<h2 class="mb-8 text-3xl font-bold">Contact</h2>
+		<Contact />
+	</section>
 </div>
 
 <style>
@@ -140,5 +166,9 @@
 		--tw-prose-code: theme('colors.gray.100');
 		--tw-prose-pre-code: theme('colors.gray.300');
 		--tw-prose-pre-bg: theme('colors.gray.800');
+	}
+
+	section {
+		scroll-margin-top: 2rem;
 	}
 </style>

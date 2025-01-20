@@ -11,6 +11,7 @@
 	let darkMode = false;
 	let isSystemDark = false;
 	let isTransitioning = false;
+	let activeSection = 'about';
 
 	onMount(() => {
 		// 检查是否为移动设备
@@ -41,8 +42,23 @@
 			}
 		});
 
+		// 添加滚动监听
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					activeSection = entry.target.id;
+				}
+			});
+		}, { threshold: 0.5 });
+		
+		// 观察所有section
+		document.querySelectorAll('section[id]').forEach((section) => {
+			observer.observe(section);
+		});
+
 		return () => {
 			window.removeEventListener('resize', checkMobile);
+			observer.disconnect();
 		};
 	});
 
@@ -123,7 +139,20 @@
 				<ul>
 					{#each navigation.sort((a, b) => a.order - b.order) as { path, name, icon: Icon }}
 						<li>
-							<a href="{base}{path}" class="flex items-center gap-3 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+							<a 
+								href="{base}{path}" 
+								class="flex items-center gap-3 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200
+									   {path.slice(1) === activeSection ? 'bg-gray-100 dark:bg-gray-700' : ''}"
+								on:click|preventDefault={(e) => {
+									const target = document.querySelector(path);
+									if(target) {
+										target.scrollIntoView({ behavior: 'smooth' });
+										if(isMobile) {
+											isDrawerOpen = false;
+										}
+									}
+								}}
+							>
 								<svelte:component this={Icon} class="w-5 h-5" />
 								<span>{name}</span>
 							</a>
@@ -142,7 +171,20 @@
 				<ul>
 					{#each navigation.sort((a, b) => a.order - b.order) as { path, name, icon: Icon }}
 						<li>
-							<a href="{base}{path}" class="flex items-center gap-3 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+							<a 
+								href="{base}{path}" 
+								class="flex items-center gap-3 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200
+									   {path.slice(1) === activeSection ? 'bg-gray-100 dark:bg-gray-700' : ''}"
+								on:click|preventDefault={(e) => {
+									const target = document.querySelector(path);
+									if(target) {
+										target.scrollIntoView({ behavior: 'smooth' });
+										if(isMobile) {
+											isDrawerOpen = false;
+										}
+									}
+								}}
+							>
 								<svelte:component this={Icon} class="w-5 h-5" />
 								<span>{name}</span>
 							</a>

@@ -2,33 +2,27 @@ import { Home, BookOpen, Mail, User, Star } from 'lucide-svelte';
 
 export const navigation = [
 	{
-		path: '/',
-		name: 'about',
+		path: '#about',
+		name: '关于',
 		icon: User,
 		order: 1
 	},
 	{
-		path: '/research',
-		name: 'research',
+		path: '#research',
+		name: '研究',
 		icon: Star,
 		order: 2
 	},
 	{
-		path: '/blog',
-		name: 'blog',
+		path: '#publications',
+		name: '发表',
 		icon: BookOpen,
 		order: 3
 	},
 	{
-		path: '/publications',
-		name: 'publications',
-		icon: Home,
-		order: 4
-	},
-	{
-		path: '/contact',
-		name: 'contact',
+		path: '#contact',
+		name: '联系',
 		icon: Mail,
-		order: 5
+		order: 4
 	}
 ]; 
