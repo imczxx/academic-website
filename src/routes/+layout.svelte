@@ -5,6 +5,7 @@
 	import { base } from '$app/paths';
 	import { afterNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { getSystemTheme, watchSystemTheme } from '$lib/theme';
 
 	let isDrawerOpen = false;
 	let isMobile = false;
@@ -34,9 +35,10 @@
 		
 		updateTheme();
 
-		mediaQuery.addEventListener('change', (e) => {
+		// 使用 watchSystemTheme 替换原来的监听器
+		const unsubscribe = watchSystemTheme((isDark) => {
 			if (!localStorage.getItem('theme')) {
-				isSystemDark = e.matches;
+				isSystemDark = isDark === 'dark';
 				darkMode = isSystemDark;
 				updateTheme();
 			}
@@ -59,6 +61,7 @@
 		return () => {
 			window.removeEventListener('resize', checkMobile);
 			observer.disconnect();
+			unsubscribe();
 		};
 	});
 
@@ -91,7 +94,7 @@
 	}
 
 	function updateTheme() {
-		if (darkMode) {
+		if (darkMode) {  // 改回使用 darkMode 而不是 theme
 			document.documentElement.classList.add('dark');
 		} else {
 			document.documentElement.classList.remove('dark');
@@ -314,5 +317,17 @@
 
 	:global(.dark) nav a:hover :global(svg) {
 		@apply text-blue-400;
+	}
+
+	:global(:root) {
+		/* 浅色主题的变量 */
+		--background-color: #ffffff;
+		--text-color: #000000;
+	}
+	
+	:global(:root.dark) {
+		/* 深色主题的变量 */
+		--background-color: #1a1a1a;
+		--text-color: #ffffff;
 	}
 </style>
