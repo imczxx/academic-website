@@ -1,15 +1,15 @@
-/* 暗黑模式基础样式 */
+/* Basic dark mode styles */
 .dark {
     @apply bg-gray-900;
     color-scheme: dark;
 }
 
-/* 选中文本样式 */
+/* Selection text styles */
 ::selection {
     @apply bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50;
 }
 
-/* 暗黑模式下的 prose 样式 */
+/* Dark mode prose styles */
 .dark .prose {
     --tw-prose-body: theme('colors.gray.300');
     --tw-prose-headings: theme('colors.gray.100');

@@ -56,7 +56,7 @@
 		}
 	}
 
-	// 导入原来各个页面的内容
+	// Import original page contents
 	import Research from './research/+page.svelte';
 	import Publications from './publications/+page.svelte';
 </script>
@@ -118,7 +118,7 @@
 		</div>
 	</section>
 
-	<!-- 添加分割线 -->
+	<!-- Add divider -->
 	<hr class="my-16 border-t border-gray-200 dark:border-gray-700" />
 
 	<!-- Research Section -->
@@ -126,7 +126,7 @@
 		<Research />
 	</section>
 
-	<!-- 添加分割线 -->
+	<!-- Add divider -->
 	<hr class="my-16 border-t border-gray-200 dark:border-gray-700" />
 
 	<!-- Publications Section -->

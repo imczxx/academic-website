@@ -1,12 +1,12 @@
-// 自动导入所有博客文件
+// Auto import all blog files
 const blogFiles = import.meta.glob('/src/routes/blog/**/*.svx', { eager: true });
 
-// 处理博客数据
+// Process blog data
 export const posts = Object.entries(blogFiles).map(([path, post]) => {
-	// 从路径中提取 slug
+	// Extract slug from path
 	const slug = path.match(/\/blog\/(.+?)\/\+page\.svx$/)[1];
 	
-	// 从文件的 frontmatter 中获取元数据
+	// Get metadata from file's frontmatter
 	const { title, date, excerpt = '' } = post.metadata;
 	
 	return {
@@ -15,14 +15,14 @@ export const posts = Object.entries(blogFiles).map(([path, post]) => {
 		date,
 		excerpt
 	};
-}).sort((a, b) => new Date(b.date) - new Date(a.date)); // 按日期排序
+}).sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date
 
-// 获取所有博客文章
+// Get all blog posts
 export function getAllPosts() {
 	return posts;
 }
 
-// 通过 slug 获取单篇文章
+// Get single post by slug
 export function getPostBySlug(slug) {
 	return posts.find(post => post.slug === slug);
 } 

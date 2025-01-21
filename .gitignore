@@ -22,5 +22,5 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# 确保不忽略 static 目录下的图片
+# Make sure to keep images in static directory
 !static/*.jpg
