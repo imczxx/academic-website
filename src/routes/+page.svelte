@@ -59,7 +59,6 @@
 	// 导入原来各个页面的内容
 	import Research from './research/+page.svelte';
 	import Publications from './publications/+page.svelte';
-	import Contact from './contact/+page.svelte';
 </script>
 
 <div class="mx-auto max-w-4xl px-4 py-8" in:fade>
@@ -121,21 +120,12 @@
 
 	<!-- Research Section -->
 	<section id="research" class="mb-16">
-		<h2 class="mb-8 text-3xl font-bold">Research Areas</h2>
-		<!-- 研究内容 -->
 		<Research />
 	</section>
 
 	<!-- Publications Section -->
 	<section id="publications" class="mb-16">
-		<h2 class="mb-8 text-3xl font-bold">Publications</h2>
 		<Publications />
-	</section>
-
-	<!-- Contact Section -->
-	<section id="contact">
-		<h2 class="mb-8 text-3xl font-bold">Contact</h2>
-		<Contact />
 	</section>
 </div>
 

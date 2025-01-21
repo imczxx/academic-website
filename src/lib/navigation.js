@@ -18,11 +18,5 @@ export const navigation = [
 		name: 'publications',
 		icon: BookOpen,
 		order: 3
-	},
-	{
-		path: '#contact',
-		name: 'contact',
-		icon: Mail,
-		order: 4
 	}
 ]; 

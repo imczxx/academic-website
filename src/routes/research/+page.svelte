@@ -1,8 +1,4 @@
-<script>
-	import { fade } from 'svelte/transition';
-</script>
-
-<div class="mx-auto max-w-4xl px-4 py-8" in:fade>
+<div class="mx-auto max-w-4xl px-4 py-8">
 	<h1 class="mb-8 text-3xl font-bold">Research Areas</h1>
 
 	<div class="prose prose-lg">
