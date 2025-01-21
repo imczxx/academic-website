@@ -1,4 +1,4 @@
-import { Home, BookOpen, Mail, User, Star } from 'lucide-svelte';
+import { BookOpen, User, Star } from 'lucide-svelte';
 
 export const navigation = [
 	{

@@ -20,7 +20,10 @@ const config = {
 		paths: {
 			base: dev ? '' : '/academic-website'
 		},
-		appDir: 'app'
+		appDir: 'app',
+		prerender: {
+			default: true
+		}
 	},
 
 	preprocess: [mdsvex()],
