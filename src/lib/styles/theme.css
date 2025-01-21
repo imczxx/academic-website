@@ -4,11 +4,6 @@
     color-scheme: dark;
 }
 
-/* 主题切换动画 */
-.transitioning-theme {
-    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
-}
-
 /* 选中文本样式 */
 ::selection {
     @apply bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50;
