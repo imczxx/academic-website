@@ -118,10 +118,16 @@
 		</div>
 	</section>
 
+	<!-- 添加分割线 -->
+	<hr class="my-16 border-t border-gray-200 dark:border-gray-700" />
+
 	<!-- Research Section -->
 	<section id="research" class="mb-16">
 		<Research />
 	</section>
+
+	<!-- 添加分割线 -->
+	<hr class="my-16 border-t border-gray-200 dark:border-gray-700" />
 
 	<!-- Publications Section -->
 	<section id="publications" class="mb-16">
