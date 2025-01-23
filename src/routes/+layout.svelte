@@ -200,4 +200,16 @@
 		--background-color: #1a1a1a;
 		--text-color: #ffffff;
 	}
+
+	/* Add styles for focused navigation links with higher specificity */
+	nav a:focus {
+		background-color: white !important;
+		color: black !important;
+		outline: none !important; /* Remove default focus outline */
+	}
+
+	/* Optionally, add a custom focus outline with higher specificity */
+	nav a:focus-visible {
+		outline: 2px solid black !important;
+	}
 </style>

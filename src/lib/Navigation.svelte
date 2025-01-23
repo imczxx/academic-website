@@ -10,16 +10,43 @@
 	export let darkMode = false;
 	export let toggleDarkMode;
 
+	let selectedPath = '';
+
 	function handleNavigationClick(path) {
 		const target = document.querySelector(path);
 		if (target) {
 			target.scrollIntoView({ behavior: 'smooth' });
+			selectedPath = path;
 			if (isMobile) {
 				toggleDrawer();
 			}
 		}
 	}
 </script>
+
+<style>
+	/* existing styles... */
+
+	/* Update styles for selected navigation links */
+	nav a.selected {
+		background-color: black !important;
+		color: white !important;
+	}
+
+	/* Update styles for focused navigation links to black background and white text */
+	nav a:focus {
+		background-color: black !important;
+		color: white !important;
+		outline: none !important; /* Remove default focus outline */
+	}
+
+	/* Optionally, add a custom focus outline with higher specificity */
+	nav a:focus-visible {
+		outline: 2px solid white !important;
+	}
+
+	/* existing styles... */
+</style>
 
 <nav class="flex flex-col justify-between">
 	<div>
@@ -29,14 +56,14 @@
 				<a href="{base}/" class="text-xl font-bold" aria-label="Profile">Your Name</a>
 			</div>
 		</div>
-		<ul class="p-2">
+		<ul class="px-4 py-2">
 			{#each navigation.sort((a, b) => a.order - b.order) as { path, name, icon: Icon }}
 				<li>
 					<a 
 						href="{base}{path}" 
 						class="group flex items-center justify-between rounded-lg p-2 text-sm transition-colors duration-300
-							   {path.slice(1) === activeSection ? 
-							   'bg-black/10 dark:bg-white/10' : 
+							   {path.slice(1) === activeSection || path === selectedPath ? 
+							   'selected' : 
 							   'hover:bg-black/5 dark:hover:bg-white/5'}"
 						on:click|preventDefault={() => handleNavigationClick(path)}
 					>
@@ -51,7 +78,7 @@
 	</div>
 
 	<!-- Social media links -->
-	<div class="p-4 border-t dark:border-gray-700">
+	<div class="px-4 py-2 border-t dark:border-gray-700">
 		<ul class="space-y-2">
 			<!-- GitHub -->
 			<li>
