@@ -1,0 +1,42 @@
+/* 主题相关的基础变量 */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+:root.dark {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+}
+
+/* 主题切换动画 */
+.transitioning-theme {
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+/* 暗色模式基础样式 */
+.dark {
+  @apply bg-gray-900;
+  color-scheme: dark;
+}
+
+/* 选择文本样式 */
+::selection {
+  @apply bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50;
+}
+
+/* 暗色模式下的排版样式 */
+.dark .prose {
+  --tw-prose-body: theme('colors.gray.300');
+  --tw-prose-headings: theme('colors.gray.100');
+  --tw-prose-links: theme('colors.blue.400');
+  --tw-prose-bold: theme('colors.gray.100');
+  --tw-prose-counters: theme('colors.gray.400');
+  --tw-prose-bullets: theme('colors.gray.400');
+  --tw-prose-quotes: theme('colors.gray.100');
+  --tw-prose-quote-borders: theme('colors.gray.700');
+  --tw-prose-captions: theme('colors.gray.400');
+  --tw-prose-code: theme('colors.gray.100');
+  --tw-prose-pre-code: theme('colors.gray.300');
+  --tw-prose-pre-bg: theme('colors.gray.800');
+} 

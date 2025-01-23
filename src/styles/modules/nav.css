@@ -1,0 +1,32 @@
+/* 导航基础样式 */
+.nav-link {
+  @apply flex items-center rounded-lg p-2 text-sm transition-colors duration-300
+         hover:bg-black/5 dark:hover:bg-white/5;
+}
+
+.nav-icon {
+  @apply w-5 h-5;
+}
+
+.nav-section-padding {
+  @apply px-4 py-2;
+}
+
+/* 主题图标基础样式 */
+.theme-icon-base {
+  @apply absolute inset-0 transition-opacity duration-200;
+}
+
+/* 导航链接选中和焦点状态 */
+nav a.selected,
+nav a:focus {
+  @apply bg-black text-white;
+}
+
+nav a:focus {
+  @apply outline-none;
+}
+
+nav a:focus-visible {
+  @apply outline-2 outline-white;
+} 
