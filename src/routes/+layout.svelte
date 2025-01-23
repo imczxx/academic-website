@@ -139,7 +139,9 @@
 							<a 
 								href="{base}{path}" 
 								class="group flex items-center justify-between rounded-lg p-2 text-sm transition-colors duration-300
-									   {path.slice(1) === activeSection ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700'}"
+									   {path.slice(1) === activeSection ? 
+									   'bg-black/10 dark:bg-white/10' : 
+									   'hover:bg-black/5 dark:hover:bg-white/5'}"
 								on:click|preventDefault={(e) => {
 									const target = document.querySelector(path);
 									if(target) {
@@ -176,7 +178,9 @@
 							<a 
 								href="{base}{path}" 
 								class="group flex items-center justify-between rounded-lg p-2 text-sm transition-colors duration-300
-									   {path.slice(1) === activeSection ? 'bg-gray-100 dark:bg-gray-700' : 'hover:bg-gray-100 dark:hover:bg-gray-700'}"
+									   {path.slice(1) === activeSection ? 
+									   'bg-black/10 dark:bg-white/10' : 
+									   'hover:bg-black/5 dark:hover:bg-white/5'}"
 								on:click|preventDefault={(e) => {
 									const target = document.querySelector(path);
 									if(target) {
@@ -199,30 +203,40 @@
 			
 			<!-- Social media links -->
 			<div class="p-4 border-t dark:border-gray-700">
-				<div class="flex justify-center space-x-4">
+				<ul class="space-y-2">
 					<!-- GitHub -->
-					<a href="https://github.com/yourusername" 
-					   target="_blank" 
-					   rel="noopener noreferrer" 
-					   class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
-					   aria-label="GitHub">
-						<Github class="w-6 h-6" />
-					</a>
+					<li>
+						<a href="https://github.com/yourusername" 
+						   target="_blank" 
+						   rel="noopener noreferrer" 
+						   class="group flex items-center rounded-lg p-2 text-sm transition-colors duration-300
+								  hover:bg-black/5 dark:hover:bg-white/5">
+							<span class="flex items-center gap-2">
+								<Github class="w-5 h-5" />
+								<span class="font-medium">GitHub</span>
+							</span>
+						</a>
+					</li>
 					
 					<!-- Email -->
-					<a href="mailto:your.email@example.com" 
-					   class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
-					   aria-label="Email">
-						<Mail class="w-6 h-6" />
-					</a>
-				</div>
+					<li>
+						<a href="mailto:your.email@example.com" 
+						   class="group flex items-center rounded-lg p-2 text-sm transition-colors duration-300
+								  hover:bg-black/5 dark:hover:bg-white/5">
+							<span class="flex items-center gap-2">
+								<Mail class="w-5 h-5" />
+								<span class="font-medium">Email</span>
+							</span>
+						</a>
+					</li>
+				</ul>
 			</div>
 			
 			<!-- Dark mode button -->
 			<div class="p-4">
 				<button
 					on:click={toggleDarkMode}
-					class="w-full flex items-center gap-3 py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200"
+					class="w-full flex items-center gap-3 py-2 px-4 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors duration-200"
 					aria-label={darkMode ? 'switch to light mode' : 'switch to dark mode'}
 				>
 					<div class="relative w-5 h-5">
@@ -257,15 +271,15 @@
 <style>
 	/* Add dark mode support */
 	:global(.dark) nav {
-		@apply bg-gray-800 border-gray-700;
+		@apply bg-black border-white/10;
 	}
 
 	:global(.dark) nav a {
-		@apply text-gray-200;
+		@apply text-white;
 	}
 
 	:global(.dark) nav a:hover {
-		@apply text-blue-400;
+		@apply text-white/80;
 	}
 
 	:global(.dark) .nav-header {
