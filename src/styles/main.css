@@ -12,6 +12,6 @@
 @import 'themes/_dark.css';
 
 /* 导入组件样式 */
+@import 'components/_navigation.css';
 @import 'modules/layout.css';
-@import 'modules/nav.css';
 @import 'modules/components.css';

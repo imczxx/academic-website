@@ -1,3 +1,4 @@
+/* 导航基础样式 */
 .nav-link {
     @apply flex items-center rounded-lg p-2 text-sm transition-colors duration-300
            hover:bg-black/5 dark:hover:bg-white/5;
@@ -5,6 +6,54 @@
 
 .nav-icon {
     @apply w-5 h-5;
+}
+
+.nav-section-padding {
+    @apply px-4 py-2;
+}
+
+/* 主题图标基础样式 */
+.theme-icon-base {
+    @apply absolute inset-0 transition-opacity duration-200;
+}
+
+/* 导航链接选中和焦点状态 */
+nav a.selected,
+nav a:focus {
+    @apply bg-black text-white;
+}
+
+nav a:focus {
+    @apply outline-none;
+}
+
+nav a:focus-visible {
+    @apply outline-2 outline-white;
+}
+
+/* 导航头部样式 */
+.nav-header {
+    @apply p-4 border-b dark:border-gray-700;
+}
+
+.nav-header a {
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-100 no-underline;
+}
+
+/* 导航列表样式 */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin-bottom: 1rem;
+}
+
+/* 个人资料图片容器 */
+.nav-header .profile-image-container {
+    @apply w-24 h-24 overflow-hidden rounded-full transition-all duration-500 ease-in-out;
 }
 
 /* ... 其他导航相关样式 ... */
