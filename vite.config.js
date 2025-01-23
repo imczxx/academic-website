@@ -10,7 +10,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@styles': path.resolve(__dirname, './src/styles'),
-			'@theme': path.resolve(__dirname, './src/lib/theme'),
+			'@theme': path.resolve('./src/lib/theme'),
 			'@components': path.resolve(__dirname, './src/lib/components')
 		}
 	}
