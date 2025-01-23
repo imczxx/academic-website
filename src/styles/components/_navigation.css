@@ -1,0 +1,10 @@
+.nav-link {
+    @apply flex items-center rounded-lg p-2 text-sm transition-colors duration-300
+           hover:bg-black/5 dark:hover:bg-white/5;
+}
+
+.nav-icon {
+    @apply w-5 h-5;
+}
+
+/* ... 其他导航相关样式 ... */

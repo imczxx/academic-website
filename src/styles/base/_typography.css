@@ -1,0 +1,20 @@
+/* 选择文本样式 */
+::selection {
+  @apply bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-gray-50;
+}
+
+/* Prose 基础样式 */
+.prose {
+  --tw-prose-body: var(--tw-prose-body);
+  --tw-prose-headings: var(--tw-prose-headings);
+  --tw-prose-links: var(--tw-prose-links);
+  --tw-prose-bold: var(--tw-prose-bold);
+  --tw-prose-counters: var(--tw-prose-counters);
+  --tw-prose-bullets: var(--tw-prose-bullets);
+  --tw-prose-quotes: var(--tw-prose-quotes);
+  --tw-prose-quote-borders: var(--tw-prose-quote-borders);
+  --tw-prose-captions: var(--tw-prose-captions);
+  --tw-prose-code: var(--tw-prose-code);
+  --tw-prose-pre-code: var(--tw-prose-pre-code);
+  --tw-prose-pre-bg: var(--tw-prose-pre-bg);
+}

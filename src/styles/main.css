@@ -1,0 +1,16 @@
+/* 导入Tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* 导入基础样式 */
+@import 'base/_typography.css';
+@import 'base/_animations.css';
+
+/* 导入主题样式 */
+@import 'themes/_light.css';
+@import 'themes/_dark.css';
+
+/* 导入组件样式 */
+@import 'components/_layout.css';
+@import 'components/_navigation.css';

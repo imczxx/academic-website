@@ -1,0 +1,4 @@
+/* 主题切换动画 */
+.transitioning-theme {
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}

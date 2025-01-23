@@ -1,0 +1,24 @@
+/* 暗色主题变量 */
+:root.dark {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  
+  /* Prose 样式变量 */
+  --tw-prose-body: theme('colors.gray.300');
+  --tw-prose-headings: theme('colors.gray.100');
+  --tw-prose-links: theme('colors.blue.400');
+  --tw-prose-bold: theme('colors.gray.100');
+  --tw-prose-counters: theme('colors.gray.400');
+  --tw-prose-bullets: theme('colors.gray.400');
+  --tw-prose-quotes: theme('colors.gray.100');
+  --tw-prose-quote-borders: theme('colors.gray.700');
+  --tw-prose-captions: theme('colors.gray.400');
+  --tw-prose-code: theme('colors.gray.100');
+  --tw-prose-pre-code: theme('colors.gray.300');
+  --tw-prose-pre-bg: theme('colors.gray.800');
+}
+
+.dark {
+  @apply bg-gray-900;
+  color-scheme: dark;
+}
