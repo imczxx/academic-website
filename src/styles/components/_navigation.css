@@ -20,15 +20,16 @@
 /* 导航链接选中和焦点状态 */
 nav a.selected,
 nav a:focus {
-    @apply bg-black text-white;
+    background-color: black !important;
+    color: white !important;
 }
 
 nav a:focus {
-    @apply outline-none;
+    outline: none !important;
 }
 
 nav a:focus-visible {
-    @apply outline-2 outline-white;
+    outline: 2px solid white !important;
 }
 
 /* 导航头部样式 */
@@ -55,5 +56,3 @@ nav li {
 .nav-header .profile-image-container {
     @apply w-24 h-24 overflow-hidden rounded-full transition-all duration-500 ease-in-out;
 }
-
-/* ... 其他导航相关样式 ... */

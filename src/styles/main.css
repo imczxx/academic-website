@@ -13,5 +13,4 @@
 
 /* 导入组件样式 */
 @import 'components/_navigation.css';
-@import 'modules/layout.css';
-@import 'modules/components.css';
+@import 'components/_layout.css';
