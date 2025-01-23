@@ -24,3 +24,4 @@ vite.config.ts.timestamp-*
 
 # Make sure to keep images in static directory
 !static/*.jpg
+!static/me.jpg
