@@ -2,6 +2,9 @@
 	import { base } from '$app/paths';
 	import { navigation } from '$lib/navigation';
 	import { Github, Mail } from 'lucide-svelte';
+	import NavHeader from './components/nav/NavHeader.svelte';
+	import NavLinks from './components/nav/NavLinks.svelte';
+	import NavFooter from './components/nav/NavFooter.svelte';
 
 	export let isMobile = false;
 	export let activeSection = 'about';
@@ -25,113 +28,43 @@
 </script>
 
 <style>
-	/* existing styles... */
-
-	/* Update styles for selected navigation links */
-	nav a.selected {
-		background-color: black !important;
-		color: white !important;
+	/* 基础样式类 */
+	.nav-link {
+		@apply flex items-center rounded-lg p-2 text-sm transition-colors duration-300
+			   hover:bg-black/5 dark:hover:bg-white/5;
+	}
+	
+	.nav-icon {
+		@apply w-5 h-5;
+	}
+	
+	.nav-section-padding {
+		@apply px-4 py-2;
+	}
+	
+	.theme-icon-base {
+		@apply absolute inset-0 transition-opacity duration-200;
 	}
 
-	/* Update styles for focused navigation links to black background and white text */
+	/* 合并的选中和焦点样式 */
+	nav a.selected,
 	nav a:focus {
 		background-color: black !important;
 		color: white !important;
-		outline: none !important; /* Remove default focus outline */
 	}
 
-	/* Optionally, add a custom focus outline with higher specificity */
+	nav a:focus {
+		outline: none !important;
+	}
+
 	nav a:focus-visible {
 		outline: 2px solid white !important;
 	}
-
-	/* existing styles... */
 </style>
 
+<!-- 将导航分成三个主要组件 -->
 <nav class="flex flex-col justify-between">
-	<div>
-		<div class="nav-header">
-			<div class="flex items-center space-x-4">
-				<img src="/me.jpg" alt="Profile" class="w-10 h-10 rounded-full object-cover" />
-				<a href="{base}/" class="text-xl font-bold" aria-label="Profile">Your Name</a>
-			</div>
-		</div>
-		<ul class="px-4 py-2">
-			{#each navigation.sort((a, b) => a.order - b.order) as { path, name, icon: Icon }}
-				<li>
-					<a 
-						href="{base}{path}" 
-						class="group flex items-center justify-between rounded-lg p-2 text-sm transition-colors duration-300
-							   {path.slice(1) === activeSection || path === selectedPath ? 
-							   'selected' : 
-							   'hover:bg-black/5 dark:hover:bg-white/5'}"
-						on:click|preventDefault={() => handleNavigationClick(path)}
-					>
-						<span class="flex items-center gap-2">
-							<svelte:component this={Icon} class="size-4" />
-							<span class="font-medium">{name}</span>
-						</span>
-					</a>
-				</li>
-			{/each}
-		</ul>
-	</div>
-
-	<!-- Social media links -->
-	<div class="px-4 py-2 border-t dark:border-gray-700">
-		<ul class="space-y-2">
-			<!-- GitHub -->
-			<li>
-				<a href="https://github.com/yourusername" 
-				   target="_blank" 
-				   rel="noopener noreferrer" 
-				   class="group flex items-center rounded-lg p-2 text-sm transition-colors duration-300
-						  hover:bg-black/5 dark:hover:bg-white/5">
-					<span class="flex items-center gap-2">
-						<Github class="w-5 h-5" />
-						<span class="font-medium">GitHub</span>
-					</span>
-				</a>
-			</li>
-			
-			<!-- Email -->
-			<li>
-				<a href="mailto:your.email@example.com" 
-				   class="group flex items-center rounded-lg p-2 text-sm transition-colors duration-300
-						  hover:bg-black/5 dark:hover:bg-white/5">
-					<span class="flex items-center gap-2">
-						<Mail class="w-5 h-5" />
-						<span class="font-medium">Email</span>
-					</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-	
-	<!-- Dark mode button -->
-	<div class="p-4">
-		<button
-			on:click={toggleDarkMode}
-			class="w-full flex items-center gap-3 py-2 px-4 hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors duration-200"
-			aria-label={darkMode ? 'switch to light mode' : 'switch to dark mode'}
-		>
-			<div class="relative w-5 h-5">
-				<div class="absolute inset-0 transition-opacity duration-200"
-					 class:opacity-0={darkMode}
-					 class:opacity-100={!darkMode}>
-					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700 group-hover:text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-					</svg>
-				</div>
-				<div class="absolute inset-0 transition-opacity duration-200"
-					 class:opacity-0={!darkMode}
-					 class:opacity-100={darkMode}>
-					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-300 group-hover:text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
-					</svg>
-				</div>
-			</div>
-			<span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
-		</button>
-	</div>
+	<NavHeader />
+	<NavLinks {activeSection} {selectedPath} {handleNavigationClick} />
+	<NavFooter {darkMode} {toggleDarkMode} />
 </nav> 
