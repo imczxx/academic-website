@@ -56,3 +56,16 @@ nav li {
 .nav-header .profile-image-container {
     @apply w-24 h-24 overflow-hidden rounded-full transition-all duration-500 ease-in-out;
 }
+
+/* 导航栏样式 */
+.navbar {
+    @apply flex justify-between items-center p-4 bg-white dark:bg-gray-800;
+}
+
+.navbar-brand {
+    @apply text-xl font-semibold text-gray-900 dark:text-white;
+}
+
+.navbar-menu {
+    @apply flex space-x-4;
+}

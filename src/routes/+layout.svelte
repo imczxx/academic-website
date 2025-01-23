@@ -1,6 +1,6 @@
 <script>
 	import '../app.css';
-	import '$lib/styles/layout.css';
+	// import '$lib/styles/layout.css';
 	import { navigation } from '$lib/navigation';
 	import { base } from '$app/paths';
 	import { afterNavigate } from '$app/navigation';
