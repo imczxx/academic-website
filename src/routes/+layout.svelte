@@ -1,102 +1,34 @@
 <script>
 	import '../app.css';
-	import { navigation } from '$lib/navigation';
-	import { base } from '$app/paths';
-	import { afterNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import { getSystemTheme, watchSystemTheme } from '$lib/theme';
-	import { Github, Mail } from 'lucide-svelte';
+	import { afterNavigate } from '$app/navigation';
 	import Navigation from '$lib/Navigation.svelte';
-	import { initTheme } from '@theme';
 	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
+	import { themeStore } from '$lib/stores/theme';
+	import { responsiveStore } from '$lib/stores/responsive';
+	import { navigationStore } from '$lib/stores/navigation';
 
-	let isDrawerOpen = false;
-	let isMobile = false;
-	let darkMode = false;
-	let isSystemDark = false;
-	let isTransitioning = false;
-	let activeSection = 'about';
+	$: ({ darkMode, isSystemDark } = $themeStore);
+	$: ({ isMobile, isDrawerOpen } = $responsiveStore);
+	$: ({ activeSection } = $navigationStore);
 
 	onMount(() => {
-		// Check if device is mobile
-		const checkMobile = () => {
-			isMobile = window.innerWidth < 768;
-		};
-		
-		checkMobile();
-		window.addEventListener('resize', checkMobile);
-		
-		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-		isSystemDark = mediaQuery.matches;
-		
-		const savedTheme = localStorage.getItem('theme');
-		if (savedTheme) {
-			darkMode = savedTheme === 'dark';
-		} else {
-			darkMode = isSystemDark;
-		}
-		
-		updateTheme();
-
-		// Replace original listener with watchSystemTheme
-		const unsubscribe = watchSystemTheme((isDark) => {
-			if (!localStorage.getItem('theme')) {
-				isSystemDark = isDark === 'dark';
-				darkMode = isSystemDark;
-				updateTheme();
-			}
-		});
-
-		// Add scroll observer
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					activeSection = entry.target.id;
-				}
-			});
-		}, { threshold: 0.5 });
-		
-		// Observe all sections
-		document.querySelectorAll('section[id]').forEach((section) => {
-			observer.observe(section);
-		});
-
-		// 在组件挂载后初始化主题
-		// 这时一定是在浏览器环境中，不需要检查 window
-		initTheme();
+		const unsubscribeResponsive = responsiveStore.initResponsive();
+		const unsubscribeNavigation = navigationStore.initNavigation();
+		themeStore.initTheme();
 
 		return () => {
-			window.removeEventListener('resize', checkMobile);
-			observer.disconnect();
-			unsubscribe();
+			unsubscribeResponsive?.();
+			unsubscribeNavigation?.();
 		};
 	});
-
-	function toggleDrawer() {
-		isDrawerOpen = !isDrawerOpen;
-	}
 
 	afterNavigate(() => {
 		if (typeof MathJax !== 'undefined') {
 			MathJax.typesetPromise();
 		}
-		// Close drawer after navigation
-		isDrawerOpen = false;
+		responsiveStore.closeDrawer();
 	});
-
-	function toggleDarkMode() {
-		darkMode = !darkMode;
-		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-		updateTheme();
-	}
-
-	function updateTheme() {
-		if (darkMode) {  // Use darkMode instead of theme
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
-	}
 </script>
 
 <div class="layout">
@@ -107,11 +39,25 @@
 			class:pointer-events-none={!isDrawerOpen}
 		>
 			<!-- Drawer content -->
-			<Navigation {isMobile} {activeSection} {toggleDrawer} {isDrawerOpen} {darkMode} {toggleDarkMode} />
+			<Navigation 
+				{isMobile}
+				{activeSection}
+				toggleDrawer={responsiveStore.toggleDrawer}
+				{isDrawerOpen}
+				{darkMode}
+				toggleDarkMode={themeStore.toggleDarkMode}
+			/>
 		</div>
 	{:else}
 		<!-- Desktop sidebar -->
-		<Navigation {isMobile} {activeSection} {toggleDrawer} {isDrawerOpen} {darkMode} {toggleDarkMode} />
+		<Navigation 
+			{isMobile}
+			{activeSection}
+			toggleDrawer={responsiveStore.toggleDrawer}
+			{isDrawerOpen}
+			{darkMode}
+			toggleDarkMode={themeStore.toggleDarkMode}
+		/>
 	{/if}
 	
 	<div class="flex-1 flex flex-col min-h-screen">
