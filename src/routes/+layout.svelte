@@ -1,6 +1,5 @@
 <script>
 	import '../app.css';
-	// import '$lib/styles/layout.css';
 	import { navigation } from '$lib/navigation';
 	import { base } from '$app/paths';
 	import { afterNavigate } from '$app/navigation';
@@ -8,6 +7,8 @@
 	import { getSystemTheme, watchSystemTheme } from '$lib/theme';
 	import { Github, Mail } from 'lucide-svelte';
 	import Navigation from '$lib/Navigation.svelte';
+	import { initTheme } from '@theme';
+	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
 
 	let isDrawerOpen = false;
 	let isMobile = false;
@@ -59,6 +60,10 @@
 		document.querySelectorAll('section[id]').forEach((section) => {
 			observer.observe(section);
 		});
+
+		// 在组件挂载后初始化主题
+		// 这时一定是在浏览器环境中，不需要检查 window
+		initTheme();
 
 		return () => {
 			window.removeEventListener('resize', checkMobile);
@@ -112,20 +117,8 @@
 	<div class="flex-1 flex flex-col min-h-screen">
 		<main class="flex-1">
 			<slot />
+			<ThemeToggle />
 		</main>
 	</div>
 </div>
 
-<style>
-	/* 删除未使用的选择器 */
-	/* :global(.dark) nav { ... } */
-	/* :global(.dark) nav a { ... } */
-	/* :global(.dark) nav a:hover { ... } */
-	/* :global(.dark) .nav-header { ... } */
-	/* .overlay { ... } */
-	/* nav a { ... } */
-	/* :global(.dark) nav a :global(svg) { ... } */
-	/* :global(.dark) nav a:hover :global(svg) { ... } */
-	/* nav a:focus { ... } */
-	/* nav a:focus-visible { ... } */
-</style>
