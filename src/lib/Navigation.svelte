@@ -9,7 +9,7 @@
 	export let isMobile = false;
 	export let activeSection = 'about';
 	export let toggleDrawer;
-	export let isDrawerOpen = false;
+	export const isDrawerOpen = false;
 	export let darkMode = false;
 	export let toggleDarkMode;
 
@@ -28,7 +28,7 @@
 </script>
 
 <!-- 将导航分成三个主要组件 -->
-<nav class="flex flex-col justify-between">
+<nav class="flex flex-col justify-between {darkMode ? 'dark' : ''}">
 	<NavHeader />
 	<NavLinks {activeSection} {selectedPath} {handleNavigationClick} />
 	<NavFooter {darkMode} {toggleDarkMode} />
