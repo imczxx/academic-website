@@ -1,4 +1,4 @@
-import{a as n,t}from"../chunks/DP8gfRFk.js";import"../chunks/BUU4U7Wy.js";import{aK as a}from"../chunks/Ohth-Zwu.js";var r=t(`<h1 class="mb-4 text-4xl font-bold dark:text-gray-50">About Me</h1> <div class="prose prose-lg"><p>Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
+import{a as n,t}from"../chunks/BU_rzJgw.js";import"../chunks/CEGbeNvx.js";import{aK as a}from"../chunks/CU3oqobm.js";var r=t(`<h1 class="mb-4 text-4xl font-bold dark:text-gray-50">About Me</h1> <div class="prose prose-lg"><p>Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
     conducting research in artificial intelligence. My research interests include machine learning,
     computer vision, and related fields.</p> <p>Brief introduction about yourself. For example: I am a Ph.D. student at University Name,
     conducting research in artificial intelligence. My research interests include machine learning,
