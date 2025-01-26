@@ -1,6 +1,6 @@
 <script>
     import { base } from '$app/paths';
-    import { navigation } from '$lib/navigation';
+    import { navigation } from '$lib/components/nav/navigation';
     
     export let activeSection;
     export let selectedPath;

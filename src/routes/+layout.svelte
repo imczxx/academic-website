@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
-	import Navigation from '$lib/Navigation.svelte';
+	import Navigation from '$lib/components/nav/Navigation.svelte';
 	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
 	import { themeStore } from '$lib/stores/theme';
 	import { responsiveStore } from '$lib/stores/responsive';
@@ -20,6 +20,7 @@
 		return () => {
 			unsubscribeResponsive?.();
 			unsubscribeNavigation?.();
+			themeStore.cleanup();
 		};
 	});
 

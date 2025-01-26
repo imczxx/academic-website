@@ -1,10 +1,10 @@
 <script>
 	import { base } from '$app/paths';
-	import { navigation } from '$lib/navigation';
+	import { navigation } from '$lib/components/nav/navigation';
 	import { Github, Mail } from 'lucide-svelte';
-	import NavHeader from './components/nav/NavHeader.svelte';
-	import NavLinks from './components/nav/NavLinks.svelte';
-	import NavFooter from './components/nav/NavFooter.svelte';
+	import NavHeader from '$lib/components/nav/NavHeader.svelte';
+	import NavLinks from '$lib/components/nav/NavLinks.svelte';
+	import NavFooter from '$lib/components/nav/NavFooter.svelte';
 
 	export let isMobile = false;
 	export let activeSection = 'about';

@@ -1,11 +1,41 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
+// 检查系统主题偏好
+function getSystemTheme() {
+    if (browser) {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    return 'light';
+}
+
 function createThemeStore() {
     const { subscribe, set, update } = writable({
         darkMode: false,
         isSystemDark: false
     });
+
+    let mediaQueryCleanup = null;
+
+    // 监听系统主题变化
+    function watchSystemTheme() {
+        if (browser) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const handleChange = (e) => {
+                if (!localStorage.getItem('theme')) {
+                    update(state => ({
+                        ...state,
+                        darkMode: e.matches,
+                        isSystemDark: e.matches
+                    }));
+                    updateThemeClass(e.matches);
+                }
+            };
+
+            mediaQuery.addEventListener('change', handleChange);
+            mediaQueryCleanup = () => mediaQuery.removeEventListener('change', handleChange);
+        }
+    }
 
     return {
         subscribe,
@@ -19,23 +49,20 @@ function createThemeStore() {
         }),
         initTheme: () => {
             if (browser) {
-                const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-                const isSystemDark = mediaQuery.matches;
                 const savedTheme = localStorage.getItem('theme');
+                const isSystemDark = getSystemTheme() === 'dark';
                 const darkMode = savedTheme ? savedTheme === 'dark' : isSystemDark;
                 
                 set({ darkMode, isSystemDark });
                 updateThemeClass(darkMode);
+                watchSystemTheme();
             }
         },
-        setSystemTheme: (isDark) => update(state => {
-            if (!localStorage.getItem('theme')) {
-                const darkMode = isDark;
-                updateThemeClass(darkMode);
-                return { ...state, isSystemDark: isDark, darkMode };
+        cleanup: () => {
+            if (mediaQueryCleanup) {
+                mediaQueryCleanup();
             }
-            return state;
-        })
+        }
     };
 }
 
