@@ -19,7 +19,6 @@
 		const target = document.querySelector(path);
 		if (target) {
 			target.scrollIntoView({ behavior: 'smooth' });
-			selectedPath = path;
 			if (isMobile) {
 				toggleDrawer();
 			}

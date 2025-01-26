@@ -37,13 +37,8 @@ nav a {
     @apply text-gray-700 dark:text-gray-300 text-lg no-underline;
 }
 
-nav a.selected,
-nav a:focus {
+nav a.selected {
     @apply bg-gray-900 text-white outline-none !important;
-}
-
-nav a:focus-visible {
-    @apply outline-2 outline-white;
 }
 
 /* 导航图标样式 */
