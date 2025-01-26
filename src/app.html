@@ -5,6 +5,15 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="/src/lib/components/math/mathjax.js"></script>
+		<script>
+			// 在页面加载时检查并应用保存的主题
+			const savedTheme = localStorage.getItem('theme');
+			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			
+			if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+				document.documentElement.classList.add('dark');
+			}
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

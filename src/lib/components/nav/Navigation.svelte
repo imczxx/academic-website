@@ -9,9 +9,9 @@
 	export let isMobile = false;
 	export let activeSection = 'about';
 	export let toggleDrawer;
-	export const isDrawerOpen = false;
+	export let isDrawerOpen = false;
 	export let darkMode = false;
-	export let toggleDarkMode;
+	export let toggleTheme;
 
 	let selectedPath = '';
 
@@ -31,5 +31,5 @@
 <nav class="flex flex-col justify-between {darkMode ? 'dark' : ''}">
 	<NavHeader />
 	<NavLinks {activeSection} {selectedPath} {handleNavigationClick} />
-	<NavFooter {darkMode} {toggleDarkMode} />
+	<NavFooter {darkMode} {toggleTheme} />
 </nav> 

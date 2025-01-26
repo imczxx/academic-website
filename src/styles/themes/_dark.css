@@ -19,7 +19,7 @@
 }
 
 .dark {
-  @apply bg-gray-900;
+  @apply bg-gray-900 text-white;
   color-scheme: dark;
 }
 

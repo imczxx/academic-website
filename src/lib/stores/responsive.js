@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
 
 function createResponsiveStore() {
-    const { subscribe, set } = writable({
+    const { subscribe, set, update } = writable({
         isMobile: false,
         isDrawerOpen: false
     });

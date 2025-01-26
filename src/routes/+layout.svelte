@@ -3,7 +3,6 @@
 	import { onMount } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 	import Navigation from '$lib/components/nav/Navigation.svelte';
-	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
 	import { themeStore } from '$lib/stores/theme';
 	import { responsiveStore } from '$lib/stores/responsive';
 	import { navigationStore } from '$lib/stores/navigation';
@@ -46,7 +45,7 @@
 				toggleDrawer={responsiveStore.toggleDrawer}
 				{isDrawerOpen}
 				{darkMode}
-				toggleDarkMode={themeStore.toggleDarkMode}
+				toggleTheme={themeStore.toggleTheme}
 			/>
 		</div>
 	{:else}
@@ -57,14 +56,13 @@
 			toggleDrawer={responsiveStore.toggleDrawer}
 			{isDrawerOpen}
 			{darkMode}
-			toggleDarkMode={themeStore.toggleDarkMode}
+			toggleTheme={themeStore.toggleTheme}
 		/>
 	{/if}
 	
 	<div class="flex-1 flex flex-col min-h-screen">
 		<main class="flex-1">
 			<slot />
-			<ThemeToggle />
 		</main>
 	</div>
 </div>

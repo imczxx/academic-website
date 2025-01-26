@@ -2,7 +2,7 @@
     import { Github, Mail } from 'lucide-svelte';
     
     export let darkMode;
-    export let toggleDarkMode;
+    export let toggleTheme;
 </script>
 
 <div class="nav-section-padding border-t dark:border-gray-700">
@@ -36,7 +36,7 @@
 <!-- Dark mode button -->
 <div class="p-4">
     <button
-        on:click={toggleDarkMode}
+        on:click={toggleTheme}
         class="nav-link w-full"
         aria-label={darkMode ? 'switch to light mode' : 'switch to dark mode'}>
         <div class="relative w-5 h-5">
